@@ -1,24 +1,20 @@
-// ---- NAVBAR COUNTERS ----
+// ---- NAVBAR
 const heartCountEl = document.querySelector("header button:nth-child(1) div");
 const coinCountEl = document.querySelector("header button:nth-child(2) div");
 
 let hearts = parseInt(heartCountEl.textContent.trim()) || 0;
 let coins = parseInt(coinCountEl.textContent.trim()) || 0;
 
-// ---- CALL HISTORY ----
+// ---- CALL HISTORY
 const callHistoryContainer = document.querySelector(".sidebar .flex.flex-col.gap-4");
 const clearHistoryBtn = document.querySelector(".sidebar button");
 
-// Clear history initially
-//if (callHistoryContainer) callHistoryContainer.innerHTML = "";
 
-// Utility: get current time in hh:mm:ss AM/PM
 function getCurrentTime() {
   const now = new Date();
   return now.toLocaleTimeString("en-US", { hour12: true });
 }
 
-// ---- CALL BUTTON FUNCTIONALITY ----
 const callButtons = document.querySelectorAll(".card button.bg-green-600");
 
 callButtons.forEach(button => {
@@ -28,21 +24,22 @@ callButtons.forEach(button => {
       return;
     }
 
-    // deduct 20 coins
+    // deduct 20 
     coins -= 20;
     if (coinCountEl) coinCountEl.textContent = coins;
 
-    // find card info
+    // find card
     const card = button.closest(".card");
     const numberElement = card.querySelector(".data-value");
     const titleElement = card.querySelector(".text-lg");
-    const number = numberElement ? numberElement.textContent.trim() : "Unknown";
-    const title = titleElement ? titleElement.textContent.trim() : "Unknown Service";
+   const number = numberElement.textContent.trim();
+const title = titleElement.textContent.trim();
+
 
     // alert popup
     alert(`📞 Calling ${title} ${number}...`);
 
-    // add call history entry
+    // add call 
     if (callHistoryContainer) {
       const entry = document.createElement("div");
       entry.className = "flex justify-between items-center p-3 bg-gray-100 w-full rounded-lg";
@@ -58,7 +55,7 @@ callButtons.forEach(button => {
   });
 });
 
-// ---- COPY BUTTON FUNCTIONALITY ----
+//COPY BUTTON
 const copyButtons = document.querySelectorAll('.copy-btn');
 
 for (const button of copyButtons) {
@@ -71,22 +68,19 @@ for (const button of copyButtons) {
   });
 }
 
-// ---- HEART / LIKE FUNCTIONALITY ----
+// -HEART 
 const heartIcons = document.querySelectorAll(".card span.cursor-pointer");
 
 heartIcons.forEach(icon => {
   icon.addEventListener("click", () => {
     if (icon.textContent.trim() === "♡") {
       hearts += 1;
-      if (heartCountEl) heartCountEl.textContent = hearts;
-    } else {
-      hearts -= 1;
-      if (heartCountEl) heartCountEl.textContent = hearts;
-    }
+     if (heartCountEl) heartCountEl.textContent = hearts;
+    } 
   });
 });
 
-// ---- CLEAR HISTORY BUTTON ----
+//CLEAR HISTORY BUTTON
 if (clearHistoryBtn) {
   clearHistoryBtn.addEventListener("click", () => {
     if (callHistoryContainer) callHistoryContainer.innerHTML = "";
