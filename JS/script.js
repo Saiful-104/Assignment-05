@@ -1,11 +1,11 @@
-// ---- NAVBAR
+
 const heartCountEl = document.querySelector("header button:nth-child(1) div");
 const coinCountEl = document.querySelector("header button:nth-child(2) div");
 
 let hearts = parseInt(heartCountEl.textContent.trim()) || 0;
 let coins = parseInt(coinCountEl.textContent.trim()) || 0;
 
-// ---- CALL HISTORY
+// CALL HISTORY
 const callHistoryContainer = document.querySelector(".sidebar .flex.flex-col.gap-4");
 const clearHistoryBtn = document.querySelector(".sidebar button");
 
@@ -80,7 +80,7 @@ heartIcons.forEach(icon => {
   });
 });
 
-//CLEAR HISTORY BUTTON
+//CLEAR 
 if (clearHistoryBtn) {
   clearHistoryBtn.addEventListener("click", () => {
     if (callHistoryContainer) callHistoryContainer.innerHTML = "";
