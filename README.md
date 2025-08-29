@@ -26,7 +26,9 @@
 *  Selects all elements that match a CSS selector. 
 *  Returns a NodeList (array-like). 
 *  does not update after DOM changes. 
-*  Supports any CSS selector. // Ans the question no -02
+*  Supports any CSS selector. 
+
+// Ans the question no -02
 
 1.  Create element → document.createElement("tag") 
 2.  Add content → .textContent / .innerHTML 
